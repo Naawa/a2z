@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Message {
+  origin      User      @relation("Author", fields: [originId], references: [id])
+  originId    String    @unique
+  destination User      @relation("Recipient", fields: [destinationId], references: [id])
+  destinationId String  @unique
+  createdAt   DateTime  @default(now())
+}
+
+model Bid {
+  id        String    @id @default(uuid())
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  String    @unique
+  offer     Decimal   @default(0.00)
+  accepted  Boolean   @default(false)
+  post      Post      @relation(fields: [postId], references: [id])
+  postId    String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Post {
+  id        String    @id @default(uuid())
+  title     String 
+  content   String
+  skills    String
+  published Boolean   @default(false)
+  active    Boolean   @default(false)
+  completed Boolean   @default(false)
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  String   @unique
+  bid       Bid?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Profile {
+  bio       String?
+  skills    String?
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String    @unique
+}
+
+model User {
+  id        String    @id @default(uuid())
+  name      String   
+  email     String    @unique
+  hash      String
+  profile   Profile? 
+  posts     Post[]
+  bids      Bid[]
+  sent      Message[] @relation("Author")
+  recieved  Message[] @relation("Recipient")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
