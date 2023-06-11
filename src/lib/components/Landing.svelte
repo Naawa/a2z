@@ -17,7 +17,13 @@
       }
       div {
          display: flex;
-         align-items: center;
+      }
+   }
+   @media screen and (max-width: 800px) {
+      section {
+         div {
+            justify-content: center;
+         }
       }
    }
 </style>
