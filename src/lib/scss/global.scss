@@ -1,20 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,1000;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;1000&display=swap');
 
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
-    line-height: 1.618;
-    text-rendering:optimizeLegibility;
-    margin: 0 auto;
+    line-height: 162%;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    margin: 0;
     padding: 0;
     transition: 0.2s;    
 }
 
 html, body {
     scroll-behavior: smooth;
+    body {
+        min-height: 100dvh;
+        margin: 0 auto;
+        width: clamp(400px, 73vw, 100vw);
+        section {
+            height: 100vh;
+            &:first-of-type {
+                max-height: 80vh;
+            }
+        }
+    }
 }
-
-body {
-    width: clamp(30vw, 60vw, 90vw);
-    height: clamp(100%, 100vh, 100vh);
+::-webkit-scrollbar {
+    display: none;
 }
