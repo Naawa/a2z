@@ -32,7 +32,6 @@
    </p>
    <br>
    <br>
-   <br>
    <div>
       <Button color={"#E1FFF3"}>View Jobs</Button>
       <Button color={"#EAE9FF"}>Post a Jobs</Button>
