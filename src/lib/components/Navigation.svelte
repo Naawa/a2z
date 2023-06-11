@@ -5,7 +5,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: clamp(150px, 10vh, 10vh);
+        height: clamp(150px, 20vh, 20vh);
 
         h1 {
             font-size: clamp(20px, 4vw, 36px);
