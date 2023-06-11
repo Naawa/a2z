@@ -19,8 +19,10 @@ html, body {
         width: clamp(200px, 73vw, 100vw);
         section {
             height: 100vh;
+            padding: 8em 0;
             &:first-of-type {
                 max-height: 80vh;
+                padding: 0;
             }
         }
     }

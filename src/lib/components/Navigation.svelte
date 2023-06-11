@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from "$app/stores";
 </script>
 <style lang="scss">
     nav {
@@ -21,18 +22,18 @@
                 color: black;
                 font-weight: 1000;
                 font-size: clamp(14px, 3vw, 24px);
-                &:first-of-type {
-                    color: #410095;
-                }
             }
         }
+    }
+    .active {
+        color: #410095;
     }
 </style>
 
 <nav>
     <h1>A2Z</h1>
     <div>
-        <a href="/">Home</a>
-        <a href="/login">Get Started</a>
+        <a id="first" href="/" class:active={$page.url.pathname==='/'}>Home</a>
+        <a id="second" href="/login" class:active={$page.url.pathname==='/login'}>Get Started</a>
     </div>
 </nav>
