@@ -3,8 +3,8 @@
 </script>
 <style lang="scss">
     button {
-        font-size: 24px;
-        padding: 10px 76px;
+        font-size: clamp(8px, 100%, 24px);
+        padding: 10px 56px;
         font-weight: 700;
         border-radius: 8px;
         border: none;
