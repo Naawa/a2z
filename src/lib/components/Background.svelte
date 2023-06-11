@@ -7,16 +7,16 @@
             background-color: #FFFCF2;
             top: 0;
             left: 0;
-            height: 55vh;
-            width: 33vw;
+            height: 55dvh;
+            width: 33dvw;
             border-bottom-right-radius: 150px;
         }
         &:nth-last-of-type(2) {
             background-color: #F2FFFB;
             right: 0;
             bottom: 0;
-            height: 60vh;
-            width: 50vw;
+            height: 60dvh;
+            width: 50dvw;
             border-top-left-radius: 150px;
         }
     }
