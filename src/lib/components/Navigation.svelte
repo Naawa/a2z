@@ -8,19 +8,19 @@
         height: clamp(175px, 20vh, 20vh);
 
         h1 {
-            font-size: clamp(16px, 4vw, 36px);
+            font-size: clamp(20px, 4vw, 36px);
             font-weight: 1000;
         }
 
         div {
             display: flex;
-            width: clamp(125px, 50%, 350px);
+            width: clamp(125px, 55%, 350px);
             justify-content: space-between;
             a {
                 text-decoration: none;
                 color: black;
                 font-weight: 1000;
-                font-size: clamp(12px, 3vw, 24px);
+                font-size: clamp(14px, 3vw, 24px);
                 &:first-of-type {
                     color: #410095;
                 }

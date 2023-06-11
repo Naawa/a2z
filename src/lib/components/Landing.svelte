@@ -8,7 +8,7 @@
       flex-direction: column;
       gap: 3em;
       h1 {
-         font-size: clamp(24px, 5vw, 90px);
+         font-size: clamp(40px, 5vw, 90px);
          line-height: 130%;
          font-weight: 1000;
       }
