@@ -3,26 +3,29 @@
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
+    font-size: clamp(12px, 2.5dvw, 18px);
     line-height: 162%;
-    font-size: clamp(10px, 3.75vw, 20px);
     text-rendering: optimizeLegibility;
     margin: 0;
-    padding: 0;
-    transition: 0.2s;    
+    padding: 0; 
 }
 
 html, body {
     scroll-behavior: smooth;
     body {
-        min-height: 100dvh;
+        height: clamp(100dvh, 100dvh, 3840px);
         margin: 0 auto;
-        width: clamp(200px, 73vw, 100vw);
-        section {
-            height: 100dvh;
-            padding: 8em 0;
-            &:first-of-type {
-                max-height: 80dvh;
-                padding: 0;
+        width: clamp(250px, 75dvw, 2160px);
+        padding: 8dvh 0;
+        main {
+            display: grid;
+            row-gap: 8dvh;
+            //border: solid 1px red;
+            section {
+                height: clamp(78dvh, 86dvh, 250dvw);
+                &:first-of-type {
+                    height: clamp(78dvh, 78dvh, 250dvw);
+                }
             }
         }
     }

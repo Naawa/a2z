@@ -1,9 +1,11 @@
 <script lang="ts">
-	import Background from "$lib/components/Background.svelte";
-    import Navigation from "$lib/components/Navigation.svelte";
+    import Navigation from "$lib/layout/Navigation.svelte";
+    import Footer from "$lib/layout/Footer.svelte";
     import "$lib/scss/global.scss"
 </script>
 
-<Background></Background>
 <Navigation></Navigation>
-<slot />
+<main>
+    <slot />
+</main>
+<Footer></Footer>

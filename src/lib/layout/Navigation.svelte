@@ -3,35 +3,33 @@
 </script>
 <style lang="scss">
     nav {
+        //border: solid 1px red;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: clamp(10dvh, 20dvh, 20dvh);
-
-        h1 {
-            font-size: clamp(20px, 4vw, 36px);
-            font-weight: 1000;
-        }
-
+        height: 6dvh;
         div {
             display: flex;
-            width: clamp(125px, 55%, 350px);
+            gap: 8vw;
             justify-content: space-between;
             a {
                 text-decoration: none;
                 color: black;
                 font-weight: 1000;
-                font-size: clamp(14px, 3vw, 24px);
             }
         }
     }
     .active {
         color: #410095;
     }
+    #logo {
+        font-weight: 1000;
+        font-size: larger;
+    }
 </style>
 
 <nav>
-    <h1>A2Z</h1>
+    <div id="logo">A2Z</div>
     <div>
         <a id="first" href="/" class:active={$page.url.pathname==='/'}>Home</a>
         <a id="second" href="/login" class:active={$page.url.pathname==='/login'}>Get Started</a>

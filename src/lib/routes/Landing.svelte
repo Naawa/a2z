@@ -1,28 +1,30 @@
 <script>
-	import Button from "./Button.svelte";
+	import Button from "../components/Button.svelte";
 
 </script>
 <style lang="scss">
    section {
       display: flex;
       flex-direction: column;
-      gap: 3em;
+      justify-content: space-evenly;
       h1 {
-         font-size: clamp(40px, 5vw, 90px);
          line-height: 130%;
          font-weight: 1000;
+         font-size: clamp(36px, 6dvh, 3rem);
       }
       p {
-         max-width: 600px;
+         width: clamp(250px, 100%, 600px);
       }
       div {
          display: flex;
+         gap: 4dvh;
       }
    }
-   @media screen and (max-width: 800px) {
+   
+   @media (width < 600px) {
       section {
          div {
-            justify-content: center;
+            flex-direction: column;
          }
       }
    }
@@ -35,6 +37,7 @@
       If you are a tradesman looking for some extra income, or if you are a person that is looking for affordable and fast help with any kind of plumbing, electrical, or renovation work, A2Z is the place for you.
    </p>
    <div>
+      <Button color={"#E1FFF3"}>Find a Professional</Button>
       <Button color={"#E1FFF3"}>Find a Professional</Button>
    </div>
 </section>

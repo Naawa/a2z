@@ -3,10 +3,9 @@
 </script>
 <style lang="scss">
     button {
-        font-size: clamp(12px, 100%, 28px);
-        padding: 18px 48px;
+        padding: 1em 3em;
         font-weight: 700;
-        border-radius: 8px;
+        border-radius: 0.75em;
         border: none;
     }   
 </style>
