@@ -16,11 +16,12 @@
                 text-decoration: none;
                 color: black;
                 font-weight: 1000;
+                transition: 0.3s;
             }
         }
     }
     .active {
-        color: #410095;
+        color: var(--accent);
     }
     #logo {
         font-weight: 1000;
@@ -29,7 +30,7 @@
 </style>
 
 <nav>
-    <div id="logo">A2Z</div>
+    <div id="logo">a2z</div>
     <div>
         <a id="first" href="/" class:active={$page.url.pathname==='/'}>Home</a>
         <a id="second" href="/login" class:active={$page.url.pathname==='/login'}>Get Started</a>

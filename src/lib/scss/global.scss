@@ -4,10 +4,12 @@
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
     font-size: clamp(12px, 2.5dvw, 18px);
+    color: var(--dark);
     line-height: 162%;
     text-rendering: optimizeLegibility;
     margin: 0;
     padding: 0; 
+    outline: none;
 }
 
 html, body {
@@ -17,11 +19,14 @@ html, body {
         margin: 0 auto;
         width: clamp(250px, 75dvw, 2160px);
         padding: 8dvh 0;
+        background-color: var(--light);
         main {
             display: grid;
             row-gap: 8dvh;
-            //border: solid 1px red;
             section {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
                 height: clamp(78dvh, 86dvh, 250dvw);
                 &:first-of-type {
                     height: clamp(78dvh, 78dvh, 250dvw);
@@ -32,4 +37,19 @@ html, body {
 }
 ::-webkit-scrollbar {
     display: none;
+}
+::selection {
+    background-color: var(--cool);
+}
+:root {
+    --dark: #000000;
+    --light: #ffffff;
+    --safe: #E0FFF4;
+    --danger: #ffe0e050;
+    --warm: #ffbf00;
+    --accent: #005872;
+}
+.dark {
+    --dark: #ffffff;
+    --light: #000000;
 }
