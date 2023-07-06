@@ -1,18 +1,12 @@
 <script lang="ts">
     import Navigation from "$lib/layout/Navigation.svelte";
     import Footer from "$lib/layout/Footer.svelte";
-    import "$lib/scss/global.scss"
-    import { page } from "$app/stores";
+    import "$lib/scss/global.scss";
     import { fly } from "svelte/transition";
-	import { onMount } from "svelte";
 
     export let data;
-    let start = false;
-
-    onMount(() => { start = true; });
 </script>
 
-{#if start}
 <Navigation></Navigation>
 <main>
     {#key data.url}
@@ -22,4 +16,3 @@
     {/key}
 </main>
 <Footer></Footer>
-{/if}

@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;1000&display=swap');
 
+@keyframes load {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
@@ -14,6 +23,7 @@
 
 html, body {
     scroll-behavior: smooth;
+    animation: load 1s;
     body {
         height: clamp(100dvh, 100dvh, 3840px);
         margin: 0 auto;
