@@ -50,7 +50,7 @@
         {#each inputProperties as properties}
             <Input {properties}></Input>
         {/each}
-        <PrimaryCTA>Login</PrimaryCTA>
+        <PrimaryCTA>Register</PrimaryCTA>
     </form>
     <AuthProviders></AuthProviders>
     <p>Have an account? <a href="/login"><i>Login</i></a></p>

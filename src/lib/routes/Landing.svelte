@@ -32,7 +32,7 @@
    }
 </style>
 <section in:fly={{ y: 200, duration: 900 }} out:fly={{ y: 200, duration: 300 }}>
-   <h1>Any help you need,<br>from A2Z.</h1>
+   <h1>Any help you need,<br>from a2z.</h1>
    <p>
       A2Z aims to provide a platform where people can use their skills to help others on their own time.<br><br>
 
