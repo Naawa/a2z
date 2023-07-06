@@ -15,7 +15,7 @@
         },
         {
             type: "password",
-            placeholder: "Password"
+            placeholder: "********"
         }
     ]
     
@@ -44,7 +44,7 @@
     }
 </style>
 
-<section in:fly={{ y: 200, duration: 900 }} out:fly={{ y: 300, duration: 300 }}>
+<section>
     <form>
         <p>Register</p>
         {#each inputProperties as properties}

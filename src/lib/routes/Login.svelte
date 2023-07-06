@@ -11,7 +11,7 @@ import Input from "$lib/components/Input.svelte";
         },
         {
             type: "password",
-            placeholder: "Password"
+            placeholder: "********"
         }
     ]
 </script>
@@ -39,7 +39,7 @@ import Input from "$lib/components/Input.svelte";
     }
 </style>
 
-<section in:fly={{ y: 200, duration: 900 }} out:fly={{ y: 200, duration: 300 }}>
+<section>
     <form>
         <p>Login</p>
         {#each inputProperties as properties}
