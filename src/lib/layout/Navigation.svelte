@@ -3,11 +3,11 @@
 </script>
 <style lang="scss">
     nav {
-        //border: solid 1px red;
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 6dvh;
+        font-size: larger;
         div {
             display: flex;
             gap: 8vw;
@@ -33,6 +33,6 @@
     <div id="logo">a2z</div>
     <div>
         <a id="first" href="/" class:active={$page.url.pathname==='/'}>Home</a>
-        <a id="second" href="/login" class:active={$page.url.pathname==='/login'}>Get Started</a>
+        <a id="second" href="/login" class:active={$page.url.pathname==='/login' || $page.url.pathname==='/register'}>Get Started</a>
     </div>
 </nav>

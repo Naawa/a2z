@@ -6,6 +6,9 @@
 </script>
 <style lang="scss">
    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
       h1 {
          line-height: 130%;
          font-weight: 1000;
@@ -28,7 +31,7 @@
       }
    }
 </style>
-<section transition:fly={{ y: 200, duration: 300 }}>
+<section in:fly={{ y: 200, duration: 900 }} out:fly={{ y: 200, duration: 300 }}>
    <h1>Any help you need,<br>from A2Z.</h1>
    <p>
       A2Z aims to provide a platform where people can use their skills to help others on their own time.<br><br>
@@ -37,6 +40,5 @@
    </p>
    <div>
       <PrimaryCTA>Find a Professional</PrimaryCTA>
-      <SecondaryCTA>Find a Professional</SecondaryCTA>
    </div>
 </section>

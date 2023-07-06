@@ -5,8 +5,8 @@
     input {
         border: solid 0.25em black;
         border-radius: 0.75rem;
-        padding: 0.65rem 1.5em;
-        width: clamp(200px, 50vw, 400px);
+        padding: 0.75rem 1.5em;
+        width: clamp(200px, 100%, 400px);
         font-style: italic;
         color: var(--warm);
     }

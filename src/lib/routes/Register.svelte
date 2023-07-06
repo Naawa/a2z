@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AuthProviders from "$lib/components/AuthProviders.svelte";
     import Input from "$lib/components/Input.svelte";
     import PrimaryCTA from "$lib/components/PrimaryCTA.svelte";
 	import { fly } from "svelte/transition";
@@ -22,6 +23,10 @@
 
 <style lang="scss">
     section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 3dvh;
         form {
             p {
                 &:first-of-type {
@@ -29,11 +34,8 @@
                     font-weight: 1000;
                 }
             }
-            margin: auto;
-            height: clamp(400px, 66vh, 800px);
             width: clamp(250px, 100%, 600px);
             border-radius: 50px;
-            opacity: 75%;
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -42,13 +44,14 @@
     }
 </style>
 
-<section transition:fly={{ y: 200, duration: 300 }}>
+<section in:fly={{ y: 200, duration: 900 }} out:fly={{ y: 300, duration: 300 }}>
     <form>
         <p>Register</p>
         {#each inputProperties as properties}
             <Input {properties}></Input>
         {/each}
         <PrimaryCTA>Login</PrimaryCTA>
-        <p>Have an account? <a href="/login"><i>Login</i></a></p>
     </form>
+    <AuthProviders></AuthProviders>
+    <p>Have an account? <a href="/login"><i>Login</i></a></p>
 </section>

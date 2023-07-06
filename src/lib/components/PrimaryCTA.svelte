@@ -1,6 +1,6 @@
 <style lang="scss">
     button {
-        padding: 0.65rem;
+        padding: 0.75rem;
         width: clamp(200px, 25vw, 400px);
         font-weight: 700;
         border-radius: 0.75rem;
@@ -8,6 +8,7 @@
         background-color: var(--accent);
         transition: 0.3s;
         color: var(--light);
+        
         
         &:hover {
             background-color: var(--light);

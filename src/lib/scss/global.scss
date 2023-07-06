@@ -3,7 +3,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
-    font-size: clamp(12px, 2.5dvw, 18px);
+    font-size: clamp(14px, 1dvw, 18px);
     color: var(--dark);
     line-height: 162%;
     text-rendering: optimizeLegibility;
@@ -25,8 +25,7 @@ html, body {
             row-gap: 8dvh;
             section {
                 display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
+                justify-content: center;
                 height: clamp(78dvh, 86dvh, 250dvw);
                 &:first-of-type {
                     height: clamp(78dvh, 78dvh, 250dvw);
@@ -47,7 +46,7 @@ html, body {
     --safe: #E0FFF4;
     --danger: #ffe0e050;
     --warm: #ffbf00;
-    --accent: #005872;
+    --accent: #154058;
 }
 .dark {
     --dark: #ffffff;
