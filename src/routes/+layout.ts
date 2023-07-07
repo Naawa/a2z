@@ -1,5 +1,5 @@
 export function load({ url }) {
     return {
-        url: url.href,
+        url: url.pathname,
     }
 }
