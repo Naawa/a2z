@@ -19,6 +19,7 @@
     margin: 0;
     padding: 0; 
     outline: none;
+    overflow: hidden;
 }
 
 html, body {
@@ -54,7 +55,7 @@ html, body {
     --dark: #000000;
     --light: #ffffff;
     --neutral: #f6f6f6;
-    --options: #f0eff5;
+    --panel: #f0eff5;
     --safe: #ecf9f4;
     --danger: #ffe0e050;
     --warm: #ffbf00;

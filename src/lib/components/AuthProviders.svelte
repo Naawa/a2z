@@ -13,7 +13,7 @@
             position: absolute;
             height: 25px;
             width: 25px;
-            translate: -65px;
+            translate: -60px;
         }
     }
 </style>

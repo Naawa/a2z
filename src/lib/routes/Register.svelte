@@ -4,7 +4,7 @@
     import PrimaryCTA from "$lib/components/PrimaryCTA.svelte";
 	import { fly } from "svelte/transition";
     
-    export let inputProperties = [
+    export let input = [
         {
             type: "name",
             placeholder: "Your Name"
@@ -40,18 +40,28 @@
             align-items: center;
             flex-direction: column;
             gap: 4dvh;
+            div {
+                width: 100%;
+                text-align: center;
+            }
         }
     }
 </style>
 
 <section>
     <form>
-        <p>Register</p>
-        {#each inputProperties as properties}
+        <p in:fly={{ y: 50, duration: 300, delay: 650 }} out:fly={{ y: 50, duration: 300, delay: 300 }}>Register</p>
+        {#each input as properties, i}
+        <div in:fly|global={{ y: 50, duration: 300, delay: 650 + (i * 50) }} out:fly|global={{ y: 50, duration: 300, delay: (250) - (i * 50)}}>
             <Input {properties}></Input>
+        </div>
         {/each}
-        <PrimaryCTA>Register</PrimaryCTA>
+        <div in:fly={{ y: 50, duration: 300, delay: 850 }} out:fly={{ y: 50, duration: 300, delay: 100 }}>
+            <PrimaryCTA>Register</PrimaryCTA>
+        </div>
     </form>
-    <AuthProviders></AuthProviders>
-    <p>Have an account? <a href="/login"><i>Login</i></a></p>
+    <div in:fly={{ y: 50, duration: 300, delay: 900 }} out:fly={{ y: 50, duration: 300, delay: 50 }}>
+        <AuthProviders></AuthProviders>  
+    </div>
+    <p in:fly={{ y: 50, duration: 300, delay: 950}} out:fly={{ y: 50, duration: 300, }}>Have an account? <a href="/login"><i>Login</i></a></p>
 </section>
