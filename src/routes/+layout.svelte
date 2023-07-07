@@ -4,9 +4,12 @@
     import "$lib/scss/global.scss";
     import { fly } from "svelte/transition";
 
+    import { browser } from "$app/environment";
+
     export let data;
 </script>
 
+{#if browser}
 <Navigation></Navigation>
 <main>
     {#key data.url}
@@ -16,3 +19,4 @@
     {/key}
 </main>
 <Footer></Footer>
+{/if}
