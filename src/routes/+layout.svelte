@@ -3,20 +3,22 @@
     import Footer from "$lib/layout/Footer.svelte";
     import "$lib/scss/global.scss";
     import { fly } from "svelte/transition";
+    import { onMount } from 'svelte';
 
-    import { browser } from "$app/environment";
+    let mounted = false;
+
+    onMount(() => mounted = true);
 
     export let data;
 </script>
-
-{#if browser}
 <Navigation></Navigation>
-<main>
-    {#key data.url}
-        <div in:fly={{ y: 200, duration: 300,delay: 300}} out:fly={{ y: 200, duration: 300 }}>
-            <slot />
-        </div>
-    {/key}
-</main>
-<Footer></Footer>
+{#if mounted}
+    <main>
+        {#key data.url}
+            <div in:fly={{ y: 200, duration: 300,delay: 300}} out:fly={{ y: 200, duration: 300 }}>
+                <slot />
+            </div>
+        {/key}
+    </main>
 {/if}
+<Footer></Footer>
