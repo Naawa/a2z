@@ -16,7 +16,7 @@ export const handle = async ({ event, resolve }) => {
     return session
   }
 
-  if (event.url.pathname === "/login") {
+  if (event.url.pathname.startsWith("/login")) {
     const session = await event.locals.getSession()
     if (session) {
       throw redirect(303, '/dashboard');
