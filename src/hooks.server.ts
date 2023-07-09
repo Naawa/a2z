@@ -24,18 +24,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 
   if (event.url.pathname.startsWith('/login')) {
     const session = await event.locals.getSession()
-    if (session) {
-      // The user is signed in.
-      throw redirect(303, '/dashboard')
-    }
-  }
-
-  if (event.url.pathname.startsWith('/dashboard') && event.request.method === "POST") {
-    const session = await event.locals.getSession()
     if (!session) {
-      // The user is not signed in.
-      throw redirect(303, '/')
+      throw redirect(303, '/');
     }
+    throw redirect(302, "/dashboard")
   }
 
   return resolve(event, {
