@@ -1,6 +1,13 @@
 import { fail, redirect } from '@sveltejs/kit'
 import { AuthApiError } from '@supabase/supabase-js'
 
+export const load = async ( event ) => {
+  const session = await event.locals.getSession()
+  if (session) {
+    throw redirect(303, '/dashboard');
+  }
+};
+
 export const actions = {
   default: async ({ request, locals: { supabase } }) => {
     const formData = await request.formData()

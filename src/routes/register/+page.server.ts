@@ -1,5 +1,12 @@
 import { fail, redirect } from "@sveltejs/kit"
 
+export const load = async ( event ) => {
+  const session = await event.locals.getSession()
+  if (session) {
+    throw redirect(303, '/dashboard');
+  }
+};
+
 export const actions = {
     default: async ({ request, url, locals: { supabase } }) => {
       const formData = await request.formData()
