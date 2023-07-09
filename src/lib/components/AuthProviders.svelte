@@ -3,7 +3,7 @@
 
     async function authWithProvider() {
         const { error } = await $page.data.supabase.auth.signInWithOAuth({
-        provider: 'google',)
+        provider: 'google',})
         if (error) {
             throw error(500, {
                 message: "Auth error.",
