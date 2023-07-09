@@ -57,6 +57,7 @@
                     border: none;
                     background-color: transparent;
                     font-weight: bold;
+                    color: var(--dark);
                 }
             }
         }

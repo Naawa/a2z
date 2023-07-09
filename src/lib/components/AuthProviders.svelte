@@ -3,7 +3,11 @@
 
     async function authWithProvider() {
         const { error } = await $page.data.supabase.auth.signInWithOAuth({
-        provider: 'google',})
+        provider: 'google',
+        options: {
+            redirectTo: 'https://a2z-inky.vercel.app/dashboard'
+            }
+        })
         if (error) {
             throw error(500, {
                 message: "Auth error.",
