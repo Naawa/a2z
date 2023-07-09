@@ -22,6 +22,18 @@ export const handle = async ({ event, resolve }) => {
       throw redirect(303, '/dashboard');
     }
   }
+  if (event.url.href.startsWith("/login")) {
+    const session = await event.locals.getSession()
+    if (session) {
+      throw redirect(303, '/dashboard');
+    }
+  }
+  if (event.url.pathname.startsWith("/register")) {
+    const session = await event.locals.getSession()
+    if (session) {
+      throw redirect(303, '/dashboard');
+    }
+  }
 
   return resolve(event, {
     filterSerializedResponseHeaders(name) {
