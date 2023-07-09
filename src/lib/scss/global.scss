@@ -12,7 +12,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
-    font-size: clamp(14px, 1dvw, 18px);
+    font-size: 18px;
     color: var(--dark);
     line-height: 162%;
     text-rendering: optimizeLegibility;
@@ -43,6 +43,28 @@ html, body {
                 }
             }
         }
+        button {
+            padding: 0.75rem;
+            width: clamp(200px, 25vw, 400px);
+            font-weight: 700;
+            border-radius: 0.75rem;
+            border: solid 0.25em var(--accent);
+            background-color: var(--accent);
+            transition: 0.3s;
+            color: var(--light);
+            
+            
+            &:hover {
+                background-color: var(--light);
+                color: var(--accent);
+            }
+        }  
+    }
+}
+
+@media (height < 800px ) or (width < 600px) {
+    *, *::before, *::after {
+        font-size: 12px;
     }
 }
 ::-webkit-scrollbar {

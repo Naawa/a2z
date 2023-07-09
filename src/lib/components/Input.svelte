@@ -1,6 +1,5 @@
 <script lang="ts">
     export let properties: object;
-    import { fly } from "svelte/transition";
 </script>
 <style lang="scss">
     input {

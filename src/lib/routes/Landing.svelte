@@ -1,6 +1,4 @@
 <script>
-	import PrimaryCTA from "../components/PrimaryCTA.svelte";
-   import SecondaryCTA from "$lib/components/SecondaryCTA.svelte";
    import { fly } from "svelte/transition";
 
 </script>
@@ -39,6 +37,6 @@
       If you are a tradesman looking for some extra income, or if you are a person that is looking for affordable and fast help with any kind of plumbing, electrical, or renovation work, A2Z is the place for you.
    </p>
    <div in:fly={{ y: 50, duration: 300, delay: 900 }} out:fly={{ y: 50, duration: 300, delay: 100 }}>
-      <PrimaryCTA>Find a Professional</PrimaryCTA>
+      <button>Find a Professional</button>
    </div>
 </section>

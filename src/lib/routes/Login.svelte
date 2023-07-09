@@ -1,13 +1,19 @@
 <script lang="ts">
     import AuthProviders from "$lib/components/AuthProviders.svelte";
     import Input from "$lib/components/Input.svelte";
-    import PrimaryCTA from "$lib/components/PrimaryCTA.svelte";
 	import { fly } from "svelte/transition";
+    import { enhance } from "$app/forms";
+
+
+    export let form;
+
+    let email = form?.email ?? "";
     
-    export let input = [
+    let input = [
         {
             type: "email",
             placeholder: "your-email@example.com",
+            value: email
         },
         {
             type: "password",
@@ -44,7 +50,7 @@
 </style>
 
 <section>
-    <form>
+    <form method="POST" action="/login" use:enhance>
         <p in:fly={{ y: 50, duration: 300, delay: 550 }} out:fly={{ y: 50, duration: 300, delay: 400 }}>Login</p>
         {#each input as properties, i}
             <div in:fly|global={{ y: 50, duration: 300, delay: 600 + (i * 50) }} out:fly|global={{ y: 50, duration: 300, delay: (300) - (i * 50) }} >
@@ -52,11 +58,12 @@
             </div>
         {/each}
         <div in:fly={{ y: 50, duration: 300, delay: 700 }} out:fly={{ y: 50, duration: 300, delay: 200 }}>
-            <PrimaryCTA>Login</PrimaryCTA>
+            <button>Login</button>
         </div>
+        <p in:fly={{ y: 50, duration: 300, delay: 700 }} out:fly={{ y: 50, duration: 300, delay: 200 }}>Forgot your password? <a href="/reset">Reset</a></p>
     </form>
     <div in:fly={{ y: 50, duration: 300, delay: 750}} out:fly={{ y: 50, duration: 300, delay: 150}}>
         <AuthProviders></AuthProviders>
     </div>
-    <p in:fly={{ y: 50, duration: 300, delay: 800 }} out:fly={{ y: 50, duration: 300, delay: 100 }}>First time? <a href="/register"><i>Register</i></a></p>
+    <p in:fly={{ y: 50, duration: 300, delay: 800 }} out:fly={{ y: 50, duration: 300, delay: 100 }}>First time? <a href="/register">Register</a></p>
 </section>

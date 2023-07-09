@@ -1,5 +1,9 @@
 <script lang="ts">
     import { fly } from "svelte/transition";
+    export let data: any
+
+    let user = data;
+    $: ({ user } = data)
 </script>
 <style lang="scss">
     section {
@@ -34,13 +38,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: bold;
-            font-size: larger;
+            padding: 0;
             
             &:hover {
                 background-color: lighten($color: #ff0000, $amount: 40%);
             }
             transition: 0.3s;
+
+            form {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button {
+                    height: 100%;
+                    width: 100%;
+                    border: none;
+                    background-color: transparent;
+                    font-weight: bold;
+                }
+            }
         }
     }
     @media (width < 600px) {
@@ -57,7 +75,7 @@
 </style>
 <section>
     <div in:fly={{ y: -100, duration: 200, delay: 600 }} out:fly={{ y: -100, duration: 200, delay: 300 }} id="topbar">
-    
+        <h1>Welcome {user.email}</h1>
     </div>
     <div in:fly={{ x: -100, duration: 200, delay: 700 }} out:fly={{ x: -100, duration: 200, delay: 200 }}  id="panel">
     
@@ -66,6 +84,8 @@
     
     </div>
     <div in:fly={{ y: 100, duration: 200, delay: 900 }} out:fly={{ y: 100, duration: 200 }} id="logout">
-    
+        <form method="POST">
+            <button>Logout</button>
+        </form>
     </div>
 </section>
