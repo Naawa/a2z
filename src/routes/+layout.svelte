@@ -24,8 +24,8 @@
 </script>
 <Navigation></Navigation>
 {#key data.url}
-  <main in:fly={{ x: -200, duration: 1200, delay: 400 }}
-  out:fly={{ x: 200, duration: 1200 }}>
+  <main in:fly|global={{ x: -200, duration: 1200, delay: 400 }}
+  out:fly|global={{ x: 200, duration: 1200 }}>
       <slot />
   </main>
 {/key}
