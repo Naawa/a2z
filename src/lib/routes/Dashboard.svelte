@@ -71,6 +71,7 @@
             "main main main"
             "logout logout logout"; 
             grid-template-rows: 1fr 1fr 7fr 1fr;
+            padding: 0;
         }
     }
 </style>
