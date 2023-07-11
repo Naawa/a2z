@@ -22,7 +22,9 @@
     });
 </script>
 <Navigation></Navigation>
-<main>
-    <slot />
-</main>
+{#key data.url}
+  <main>
+      <slot />
+  </main>
+{/key}
 <Footer></Footer>

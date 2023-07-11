@@ -1,4 +1,3 @@
-import { goto } from '$app/navigation';
 import { redirect } from '@sveltejs/kit'
 
 export const load = async ( event ) => {
@@ -6,7 +5,6 @@ export const load = async ( event ) => {
   if (!session) {
     throw redirect(303, '/login');
   }
-  goto('/dashboard');
 };
 
 export const actions = {
