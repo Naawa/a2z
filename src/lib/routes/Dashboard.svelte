@@ -72,8 +72,9 @@
             "logout logout logout"; 
             grid-template-rows: 1fr 1fr 7fr 1fr;
 
-            div {
-                padding: 0;
+            div:first-of-type {
+                padding: 2em;
+                align-items: center;
             }
         }
     }
