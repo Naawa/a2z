@@ -34,7 +34,7 @@
     <div>
         <a id="first" href="/" class:active={$page.url.pathname==='/'}>Home</a>
         {#if $page.data.session}
-            <a id="first" href="/dashboard" class:active={$page.url.pathname==='/dashboard'}>Welcome</a>
+            <a id="first" href="/dashboard" class:active={$page.url.pathname==='/dashboard'}>Dashboard</a>
         {:else}
             <a id="second" href="/login" class:active={$page.url.pathname==='/login' || $page.url.pathname==='/register'}>Get Started</a>
             {/if}
