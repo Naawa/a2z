@@ -21,7 +21,7 @@ export const actions = {
             emailRedirectTo: `${url.origin}/auth/callback`,
             data: {
                 name: name,
-            }
+            },
         },
       })
   
