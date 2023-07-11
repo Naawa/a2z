@@ -45,20 +45,18 @@
             }
             transition: 0.3s;
 
-            form {
+            a {
                 height: 100%;
                 width: 100%;
+                border: none;
+                background-color: transparent;
+                font-weight: bold;
+                color: var(--dark);
+                text-align: center;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                button {
-                    height: 100%;
-                    width: 100%;
-                    border: none;
-                    background-color: transparent;
-                    font-weight: bold;
-                    color: var(--dark);
-                }
+                text-decoration: none;
             }
         }
     }
@@ -91,8 +89,6 @@
     
     </div>
     <div in:fly={{ y: 100, duration: 200, delay: 900 }} out:fly={{ y: 100, duration: 200 }} id="logout">
-        <form method="POST">
-            <button>Logout</button>
-        </form>
+        <a href="/logout">Logout</a>
     </div>
 </section>
