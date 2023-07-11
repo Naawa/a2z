@@ -70,7 +70,7 @@
             "panel panel panel"
             "main main main"
             "logout logout logout"; 
-            grid-template-rows: 1fr 1fr 4fr 1fr;
+            grid-template-rows: 1fr 1fr 7fr 1fr;
         }
     }
 </style>
