@@ -4,6 +4,7 @@
     import "$lib/scss/global.scss";
     import { invalidate } from '$app/navigation';
     import { onMount } from 'svelte';
+	  import { fly } from "svelte/transition";
 
     export let data;
 
@@ -23,7 +24,8 @@
 </script>
 <Navigation></Navigation>
 {#key data.url}
-  <main>
+  <main in:fly={{ x: -200, duration: 1200, delay: 400 }}
+  out:fly={{ x: 200, duration: 1200 }}>
       <slot />
   </main>
 {/key}
