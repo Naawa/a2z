@@ -73,7 +73,7 @@
             grid-template-rows: 1fr 1fr 7fr 1fr;
 
             div:first-of-type {
-                padding: 2em;
+                padding: 0 2em;
                 align-items: center;
             }
         }
