@@ -74,6 +74,7 @@
 
             div:first-of-type {
                 padding: 0 2em;
+                display: flex;
                 align-items: center;
             }
         }
