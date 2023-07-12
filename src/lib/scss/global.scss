@@ -20,6 +20,7 @@
     padding: 0; 
     outline: none;
     overflow: hidden;
+    //border: solid 1px red;
 }
 
 html, body {
@@ -45,7 +46,7 @@ html, body {
         }
         button {
             padding: 0.75rem;
-            width: clamp(200px, 25vw, 400px);
+            width: clamp(200px, 100%, 400px);
             font-weight: 700;
             border-radius: 0.75rem;
             border: solid 0.25em var(--accent);
@@ -63,7 +64,7 @@ html, body {
             border: solid 0.25em black;
             border-radius: 0.75rem;
             padding: 0.75rem 1.5em;
-            width: clamp(200px, 100%, 400px);
+            width: clamp(250px, 100%, 600px);
             font-style: italic;
             color: var(--warm);
         }
@@ -81,9 +82,28 @@ html, body {
     height: 4vh;
     font-weight: bold;
 }
-@media (height < 1000px ) or (width < 600px) {
+
+@media (height > 1080px ) {
+    *, *::before, *::after {
+        font-size: 24px;
+    }
+}
+
+@media (height < 900px ) {
     *, *::before, *::after {
         font-size: 14px;
+    }
+}
+
+@media (height < 700px ) or (width < 500px) {
+    *, *::before, *::after {
+        font-size: 12px;
+    }
+}
+
+@media (width < 300px) {
+    *, *::before, *::after {
+        font-size: 10px;
     }
 }
 ::-webkit-scrollbar {

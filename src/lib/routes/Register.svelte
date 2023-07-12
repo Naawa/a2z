@@ -27,7 +27,6 @@
                 }
             }
             width: clamp(250px, 100%, 600px);
-            border-radius: 50px;
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -48,7 +47,6 @@
     {/if}
     <form method="POST" action="/register" use:enhance>
         <p in:fly={{ y: 50, duration: 300, delay: 650 }} out:fly={{ y: 50, duration: 300, delay: 300 }}>Register</p>
-        <input in:fly={{ y: 50, duration: 300, delay: 700 }} out:fly={{ y: 50, duration: 300, delay: 250 }} placeholder="Your Name" type="name" name="name" bind:value={$form.name} {...$constraints.name}>
         <input in:fly={{ y: 50, duration: 300, delay: 850 }} out:fly={{ y: 50, duration: 300, delay: 200 }} placeholder="your-email@example.com" type="email" name="email" bind:value={$form.email} {...$constraints.email}>
         <input in:fly={{ y: 50, duration: 300, delay: 900 }} out:fly={{ y: 50, duration: 300, delay: 150 }} placeholder="********" type="password" name="password" bind:value={$form.password} {...$constraints.password}>
         <div in:fly={{ y: 50, duration: 300, delay: 850 }} out:fly={{ y: 50, duration: 300, delay: 100 }}>

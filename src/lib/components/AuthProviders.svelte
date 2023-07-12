@@ -16,7 +16,7 @@
     }
 </script>
 <style lang="scss">
-    span {
+    div {
         display: flex;
         align-self: center;
         justify-content: center;
@@ -27,11 +27,10 @@
             position: absolute;
             height: 25px;
             width: 25px;
-            translate: -60px;
+            translate: -3em;
         }
         button {
             padding: 0.75rem;
-            width: clamp(200px, 25vw, 400px);
             font-weight: 700;
             border-radius: 0.75rem;
             border: solid 0.25em var(--accent);
@@ -41,7 +40,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1em;
+            width: clamp(250px, 60dvw, 300px);
             
             &:hover {
                 color: var(--light);
@@ -51,7 +50,7 @@
         }
     }
 </style>
-<span>
+<div>
     <p>Or use your google account, </p>
     <button on:click={authWithProvider}><img alt="Google logo." src="/google.png">Google</button>
-</span>
+</div>

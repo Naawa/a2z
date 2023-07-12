@@ -27,7 +27,6 @@
                 }
             }
             width: clamp(250px, 100%, 600px);
-            border-radius: 50px;
             display: flex;
             align-items: center;
             flex-direction: column;
