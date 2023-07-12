@@ -1,7 +1,7 @@
 <script lang="ts">
     import Login from "$lib/routes/Login.svelte"
 
-    export let form
+    export let data;
 </script>
 
-<Login {form}></Login>
+<Login {data}></Login>

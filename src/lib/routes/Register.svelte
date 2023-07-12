@@ -1,33 +1,16 @@
 <script lang="ts">
+	import { page } from "$app/stores";
 	import AuthProviders from "$lib/components/AuthProviders.svelte";
-    import Input from "$lib/components/Input.svelte";
 	import { fly } from "svelte/transition";
-    import { enhance } from "$app/forms";
+	import { superForm } from "sveltekit-superforms/client";
 
-    export let form: any;
+    export let data;
 
-    let name = form?.name ?? "";
-    let email = form?.email ?? "";
-    
-    let input = [
-        {
-            type: "name",
-            placeholder: "Your Name",
-            name: "name",
-            value: name
-        },
-        {
-            type: "email",
-            placeholder: "your-email@example.com",
-            name: "email",
-            value: email
-        },
-        {
-            type: "password",
-            placeholder: "********",
-            name: "password"
-        }
-    ]
+    const { form, constraints, message, enhance} = superForm(data.form, {
+        applyAction: true,
+        invalidateAll: true,
+        resetForm: false,
+    })
 </script>
 
 <style lang="scss">
@@ -58,16 +41,16 @@
 </style>
 
 <section>
+    {#if $message}
+        <div in:fly={{y: -200, duration: 400}} out:fly={{y: -200, duration: 400}} class:success={$page.status == 200} class:error={$page.status >= 400}>
+            {$message}
+        </div>
+    {/if}
     <form method="POST" action="/register" use:enhance>
         <p in:fly={{ y: 50, duration: 300, delay: 650 }} out:fly={{ y: 50, duration: 300, delay: 300 }}>Register</p>
-        {#if form?.error}
-            <p>{form?.error}</p>
-        {/if}
-        {#each input as properties, i}
-            <div in:fly|global={{ y: 50, duration: 300, delay: 650 + (i * 50) }} out:fly|global={{ y: 50, duration: 300, delay: (250) - (i * 50)}}>
-                <Input {properties}></Input>
-            </div>
-        {/each}
+        <input in:fly={{ y: 50, duration: 300, delay: 700 }} out:fly={{ y: 50, duration: 300, delay: 250 }} placeholder="Your Name" type="name" name="name" bind:value={$form.name} {...$constraints.name}>
+        <input in:fly={{ y: 50, duration: 300, delay: 850 }} out:fly={{ y: 50, duration: 300, delay: 200 }} placeholder="your-email@example.com" type="email" name="email" bind:value={$form.email} {...$constraints.email}>
+        <input in:fly={{ y: 50, duration: 300, delay: 900 }} out:fly={{ y: 50, duration: 300, delay: 150 }} placeholder="********" type="password" name="password" bind:value={$form.password} {...$constraints.password}>
         <div in:fly={{ y: 50, duration: 300, delay: 850 }} out:fly={{ y: 50, duration: 300, delay: 100 }}>
             <button>Register</button>
         </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Register from "$lib/routes/Register.svelte";
-	export let form;
+	export let data;
 </script>
 
-<Register {form}></Register>
+<Register {data}></Register>

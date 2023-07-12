@@ -59,12 +59,31 @@ html, body {
                 color: var(--accent);
             }
         }
+        input {
+            border: solid 0.25em black;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1.5em;
+            width: clamp(200px, 100%, 400px);
+            font-style: italic;
+            color: var(--warm);
+        }
     }
 }
-
-@media (height < 800px ) or (width < 600px) {
+.error {
+    color: hsl(0, 75%, 75%);
+    font-weight: bold;
+}
+.success {
+    color: var(--warm);
+    font-weight: bold;
+}
+.message {
+    height: 4vh;
+    font-weight: bold;
+}
+@media (height < 1000px ) or (width < 600px) {
     *, *::before, *::after {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 ::-webkit-scrollbar {

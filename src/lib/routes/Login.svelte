@@ -1,25 +1,16 @@
 <script lang="ts">
+	import { page } from "$app/stores";
     import AuthProviders from "$lib/components/AuthProviders.svelte";
-    import Input from "$lib/components/Input.svelte";
 	import { fly } from "svelte/transition";
-    import { enhance } from "$app/forms";
+    import { superForm } from 'sveltekit-superforms/client';
 
-
-    export let form;
-
-    let email = form?.email ?? "";
+    export let data;
     
-    let input = [
-        {
-            type: "email",
-            placeholder: "your-email@example.com",
-            value: email
-        },
-        {
-            type: "password",
-            placeholder: "********"
-        }
-    ]
+    const { form, constraints, message, enhance} = superForm(data.form, {
+        applyAction: true,
+        invalidateAll: true,
+        resetForm: false,
+    })
 </script>
 
 <style lang="scss">
@@ -50,13 +41,15 @@
 </style>
 
 <section>
+    {#if $message}
+        <div in:fly={{y: -200, duration: 400}} out:fly={{y: -200, duration: 400}} class:success={$page.status == 200} class:error={$page.status >= 400}>
+            {$message}
+        </div>
+    {/if}
     <form method="POST" action="/login" use:enhance>
         <p in:fly={{ y: 50, duration: 300, delay: 550 }} out:fly={{ y: 50, duration: 300, delay: 400 }}>Login</p>
-        {#each input as properties, i}
-            <div in:fly|global={{ y: 50, duration: 300, delay: 600 + (i * 50) }} out:fly|global={{ y: 50, duration: 300, delay: (300) - (i * 50) }} >
-                <Input {properties}></Input>
-            </div>
-        {/each}
+        <input in:fly={{ y: 50, duration: 300, delay: 600 }} out:fly={{ y: 50, duration: 300, delay: 300 }} type="email" name="email" bind:value={$form.email} placeholder="your-email@example.com" {...$constraints.email}>
+        <input in:fly={{ y: 50, duration: 300, delay: 650 }} out:fly={{ y: 50, duration: 300, delay: 250 }} type="password" name="password" placeholder="**********" bind:value={$form.password} {...$constraints.password}>
         <div in:fly={{ y: 50, duration: 300, delay: 700 }} out:fly={{ y: 50, duration: 300, delay: 200 }}>
             <button>Login</button>
         </div>

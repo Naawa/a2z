@@ -1,4 +1,6 @@
-import { fail, redirect } from "@sveltejs/kit"
+import { registerSchema } from "$lib/utils/validationSchema";
+import { redirect } from "@sveltejs/kit"
+import { message, superValidate } from 'sveltekit-superforms/server';
 
 export const load = async ( event ) => {
   const session = await event.locals.getSession()
@@ -9,12 +11,15 @@ export const load = async ( event ) => {
 
 export const actions = {
     default: async ({ request, url, locals: { supabase } }) => {
-      const formData = await request.formData()
-      const name = formData.get('name') as string
-      const email = formData.get('email') as string
-      const password = formData.get('password') as string
+      const form = await superValidate(request, registerSchema);
+      let {name, email, password} = form.data;
   
-      const { error } = await supabase.auth.signUp({
+      if(!form.valid) {
+          return message(form, "Invalid request.");
+      }
+
+      /**
+       * const { error } = await supabase.auth.signUp({
         email,
         password,
         options: {  
@@ -26,9 +31,11 @@ export const actions = {
       })
   
       if (error) {
-        return fail(500, { message: 'Server error. Try again later.', success: false, email })
+        return message(form, error.message);
       }
-      
-      throw redirect(303, '/dashboard');
+      return message(form, "Registered successfully, please login.")
+       */
+
+      return message(form, "Register does not work yet...");
     },
   }
