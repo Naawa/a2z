@@ -30,7 +30,7 @@ export const actions = {
       if (error) {
         return message(form, error.message);
       }
-      return message(form, "Registered successfully, please login.")
+      return message(form, "Registered successfully, please check your email.")
 
       //return message(form, "Register does not work yet...");
     },
