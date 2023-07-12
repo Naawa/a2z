@@ -25,7 +25,6 @@ export const actions = {
     if (error) {
       return message(form, error.message);
     }
-    throw redirect(303, '/');
-    //return message(form, "Login does not work yet...");
+    return message(form, "Logged in successfully.");
   }
 }
