@@ -12,12 +12,10 @@ export const load = async ( event ) => {
 export const actions = {
   default: async ({ request, locals: { supabase } }) => {
     const form = await superValidate(request, schema);
-
-    /**
-     * if(!form.valid) {
-        return message(form, "Invalid request.");
-      }
-     * let { email, password } = form.data;
+    if(!form.valid) {
+      return message(form, "Invalid request.");
+    }
+    let { email, password } = form.data;
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
@@ -27,8 +25,7 @@ export const actions = {
     if (error) {
       return message(form, error.message);
     }
-     */
-
-    return message(form, "Login does not work yet...");
+    throw redirect(303, '/');
+    //return message(form, "Login does not work yet...");
   }
 }

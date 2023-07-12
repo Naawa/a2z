@@ -11,25 +11,19 @@ export const load = async ( event ) => {
 
 export const actions = {
     default: async ({ request, url, locals: { supabase } }) => {
-      const form = await superValidate(request, schema);
-      
 
-      /**
-       *
-       * let {email, password} = form.data;
+      const form = await superValidate(request, schema);
+      let {email, password} = form.data;
   
-        if(!form.valid) {
-            return message(form, "Invalid request.");
-        }
+      if(!form.valid) {
+          return message(form, "Invalid request.");
+      }
        
-        const { error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email,
         password,
         options: {  
             emailRedirectTo: `${url.origin}/auth/callback`,
-            data: {
-                name: name,
-            },
         },
       })
   
@@ -37,8 +31,7 @@ export const actions = {
         return message(form, error.message);
       }
       return message(form, "Registered successfully, please login.")
-       */
 
-      return message(form, "Register does not work yet...");
+      //return message(form, "Register does not work yet...");
     },
   }
