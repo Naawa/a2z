@@ -7,6 +7,8 @@ export const load = async ( event ) => {
   if (session) {
     throw redirect(303, '/dashboard');
   }
+  const form = await superValidate(schema);
+  return { form };
 };
 
 export const actions = {
@@ -17,13 +19,16 @@ export const actions = {
     }
     let { email, password } = form.data;
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
     })
 
     if (error) {
-      return message(form, error.message);
+      return message(form, "Error :(, please try again later.", 
+      {    
+        status: 500
+      });
     }
     return message(form, "Logged in successfully.");
   }

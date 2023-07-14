@@ -40,11 +40,13 @@
 </style>
 
 <section>
-    {#if $message}
-        <div in:fly={{y: -200, duration: 400}} out:fly={{y: -200, duration: 400}} class:success={$page.status == 200} class:error={$page.status >= 400}>
-            {$message}
-        </div>
-    {/if}
+    <div class="message">
+        {#if $message}
+            <div in:fly={{y: -200, duration: 400}} out:fly={{y: -200, duration: 400}} class:success={$page.status == 200} class:error={$page.status >= 400}>
+                {$message}
+            </div>
+        {/if}
+    </div>
     <form method="POST" action="/register" use:enhance>
         <p in:fly={{ y: 50, duration: 300, delay: 650 }} out:fly={{ y: 50, duration: 300, delay: 300 }}>Register</p>
         <input in:fly={{ y: 50, duration: 300, delay: 850 }} out:fly={{ y: 50, duration: 300, delay: 200 }} placeholder="your-email@example.com" type="email" name="email" bind:value={$form.email} {...$constraints.email}>
@@ -56,5 +58,5 @@
     <div in:fly={{ y: 50, duration: 300, delay: 900 }} out:fly={{ y: 50, duration: 300, delay: 50 }}>
         <AuthProviders></AuthProviders>
     </div>
-    <p in:fly={{ y: 50, duration: 300, delay: 950}} out:fly={{ y: 50, duration: 300, }}>Have an account? <a href="/login"><i>Login</i></a></p>
+    <p in:fly={{ y: 50, duration: 300, delay: 950}} out:fly={{ y: 50, duration: 300, }}>Have an account? <a href="/login">Login.</a></p>
 </section>

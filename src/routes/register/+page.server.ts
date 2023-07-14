@@ -7,6 +7,8 @@ export const load = async ( event ) => {
   if (session) {
     throw redirect(303, '/dashboard');
   }
+  const form = await superValidate(schema);
+  return { form };
 };
 
 export const actions = {
@@ -19,19 +21,20 @@ export const actions = {
           return message(form, "Invalid request.");
       }
        
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {  
-            emailRedirectTo: `${url.origin}/auth/callback`,
+            emailRedirectTo: `${url.origin}/api/auth/callback`,
         },
       })
   
       if (error) {
-        return message(form, error.message);
+        return message(form, "Error :(, please try again later.", 
+        {    
+          status: 500
+        });
       }
       return message(form, "Registered successfully, please check your email.")
-
-      //return message(form, "Register does not work yet...");
     },
   }

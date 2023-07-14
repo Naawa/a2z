@@ -25,9 +25,9 @@
         gap: 2dvh;
         img {
             position: absolute;
-            height: 25px;
-            width: 25px;
-            translate: -3em;
+            height: 1em;
+            width: 1em;
+            translate: -4em;
         }
         button {
             padding: 0.75rem;

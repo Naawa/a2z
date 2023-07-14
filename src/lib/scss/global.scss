@@ -20,7 +20,6 @@
     padding: 0; 
     outline: none;
     overflow: hidden;
-    //border: solid 1px red;
 }
 
 html, body {
@@ -79,13 +78,16 @@ html, body {
     font-weight: bold;
 }
 .message {
-    height: 4vh;
+    height: 1em;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (height > 1080px ) {
     *, *::before, *::after {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
@@ -117,10 +119,10 @@ html, body {
     --light: #ffffff;
     --neutral: #f6f6f6;
     --panel: #f0eff5;
-    --safe: #ecf9f4;
+    --safe: #6dca55;
     --danger: #ffe0e050;
     --warm: #ffbf00;
-    --accent: #301558;
+    --accent: rgb(70, 13, 120);
 }
 .dark {
     --dark: #ffffff;
