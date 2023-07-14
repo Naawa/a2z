@@ -1,5 +1,4 @@
 import { emailForLinkSchema } from "$lib/utils/validationSchema.js";
-import { redirect } from "@sveltejs/kit"
 import { message, superValidate } from 'sveltekit-superforms/server';
 
 export const load = async ( event ) => {
