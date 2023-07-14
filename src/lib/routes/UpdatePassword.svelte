@@ -48,7 +48,7 @@
     </div>
 	<form method="POST" use:enhance>
 		<p in:fly={{ y: 50, duration: 300, delay: 550 }} out:fly={{ y: 50, duration: 300, delay: 200 }}>Update</p>
-		<input in:fly={{ y: 50, duration: 300, delay: 600 }} out:fly={{ y: 50, duration: 300, delay: 150 }} type="password" name="password" bind:value={$form.password} placeholder="New Password" {...$constraints.password}>
+		<input in:fly={{ y: 50, duration: 300, delay: 600 }} out:fly={{ y: 50, duration: 300, delay: 150 }} type="password" name="newPassword" bind:value={$form.newPassword} placeholder="New Password" {...$constraints.password}>
 		<button in:fly={{ y: 50, duration: 300, delay: 700 }} out:fly={{ y: 50, duration: 300, delay: 100 }}>Submit</button>
 	</form>
 </section>
