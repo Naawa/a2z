@@ -5,7 +5,7 @@
         const { error } = await $page.data.supabase.auth.signInWithOAuth({
             provider: 'google',
             options: {
-                redirectTo: `https://a2z-inky.vercel.app/dashboard`
+                redirectTo: `${url.origin}/api/auth/callback?next=/dashboard`
             }
         })
         if (error) {
