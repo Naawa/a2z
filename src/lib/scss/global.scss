@@ -37,7 +37,7 @@ html, body {
             section {
                 display: flex;
                 justify-content: center;
-                height: clamp(78dvh, 86dvh, 250dvw);
+                height: clamp(78dvh, 84dvh, 250dvw);
                 &:first-of-type {
                     height: clamp(78dvh, 78dvh, 250dvw);
                 }

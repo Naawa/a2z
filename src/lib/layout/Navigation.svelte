@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
+	import { fly } from "svelte/transition";
 </script>
 <style lang="scss">
     nav {
@@ -30,13 +31,13 @@
 </style>
 
 <nav>
-    <div id="logo">a2z</div>
+    <div id="logo" in:fly={{ x: -50, duration: 300, delay: 550 }} out:fly={{ x: -50, duration: 300, delay: 150 }}>a2z</div>
     <div>
-        <a id="first" href="/" class:active={$page.url.pathname==='/'}>Home</a>
+        <a id="first" href="/" class:active={$page.url.pathname==='/'} in:fly={{ y: -50, duration: 300, delay: 600 }} out:fly={{ y: -50, duration: 300, delay: 100 }}>Home</a>
         {#if $page.data.session}
-            <a id="first" href="/dashboard" class:active={$page.url.pathname==='/dashboard'}>Dashboard</a>
+            <a id="first" href="/dashboard" class:active={$page.url.pathname==='/dashboard'} in:fly|global={{ x: 50, duration: 300, delay: 650 }} out:fly|global={{ x: 50, duration: 300, delay: 50 }}>Dashboard</a>
         {:else}
-            <a id="second" href="/login" class:active={$page.url.pathname==='/login' || $page.url.pathname==='/register'}>Get Started</a>
-            {/if}
+            <a id="second" href="/login" class:active={$page.url.pathname==='/login' || $page.url.pathname==='/register'} in:fly|global={{ x: 50, duration: 300, delay: 650 }} out:fly|global={{ x: 50, duration: 300, delay: 50 }}>Get Started</a>
+        {/if}
     </div>
 </nav>

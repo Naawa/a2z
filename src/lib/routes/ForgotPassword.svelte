@@ -17,7 +17,9 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+        justify-content: center;
         gap: 3dvh;
+        height: clamp(78dvh, 84dvh, 250dvw);
         form {
             p {
                 &:first-of-type {
