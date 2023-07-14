@@ -20,7 +20,7 @@ export const actions = {
           return message(form, "Invalid request.");
       }
       const { data, error } = await supabase.auth.resetPasswordForEmail(email, { 
-        redirectTo: `${url.origin}/api/auth/callback?next=/update-password'`
+        redirectTo: `${url.origin}/api/auth/callback?next=/update-password`
       });
 
       if(error) {
