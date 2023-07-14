@@ -3,10 +3,6 @@ import { redirect } from "@sveltejs/kit"
 import { message, superValidate } from 'sveltekit-superforms/server';
 
 export const load = async ( event ) => {
-  const session = await event.locals.getSession()
-  if (session) {
-    throw redirect(303, '/');
-  }
   const form = await superValidate(emailForLinkSchema);
   return { form };
 };
