@@ -1,10 +1,11 @@
 import { emailForLinkSchema } from "$lib/utils/validationSchema.js";
+import { redirect } from "@sveltejs/kit"
 import { message, superValidate } from 'sveltekit-superforms/server';
 
 export const load = async ( event ) => {
   const session = await event.locals.getSession()
   if (session) {
-    window.close();
+    throw redirect(303, '/');
   }
   const form = await superValidate(emailForLinkSchema);
   return { form };
@@ -27,6 +28,7 @@ export const actions = {
           status: 500
         });
       }
+
       return message(form, "Please check your email.")
     },
 }
