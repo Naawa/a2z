@@ -25,7 +25,7 @@ export const actions = {
     })
 
     if (error) {
-      return message(form, "Error :(, please try again later.", 
+      return message(form, "Invalid crediantials.", 
       {    
         status: 500
       });
