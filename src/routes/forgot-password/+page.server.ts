@@ -5,6 +5,7 @@ import { message, superValidate } from 'sveltekit-superforms/server';
 export const load = async ( event ) => {
   const session = await event.locals.getSession()
   if (session) {
+    await event.locals.supabase.auth.signOut();
     throw redirect(303, '/dashboard');
   }
   const form = await superValidate(emailForLinkSchema);
@@ -28,7 +29,6 @@ export const actions = {
           status: 500
         });
       }
-
       return message(form, "Please check your email.")
     },
 }

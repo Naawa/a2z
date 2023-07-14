@@ -5,7 +5,7 @@ import { message, superValidate } from 'sveltekit-superforms/server';
 export const load = async ( event ) => {
   const session = await event.locals.getSession()
   if (!session) {
-    throw redirect(303, '/close');
+    throw redirect(303, '/login');
   }
   const form = await superValidate(newPasswordSchema);
   return { form };
