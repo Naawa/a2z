@@ -12,7 +12,7 @@ export const load = async ( event ) => {
 };
 
 export const actions = {
-    default: async ({ request, locals: { supabase } }) => {
+    default: async ({ request, url, locals: { supabase } }) => {
       const form = await superValidate(request, emailForLinkSchema);
       let email = form.data.email;
   
@@ -20,7 +20,7 @@ export const actions = {
           return message(form, "Invalid request.");
       }
       const { data, error } = await supabase.auth.resetPasswordForEmail(email, { 
-        redirectTo: 'https://a2z-inky.vercel.app/update-password'
+        redirectTo: `${url.origin}/api/auth/callback?next=/update-password'`
       });
 
       if(error) {
