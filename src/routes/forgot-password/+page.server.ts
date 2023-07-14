@@ -20,7 +20,7 @@ export const actions = {
           return message(form, "Invalid request.");
       }
       const { data, error } = await supabase.auth.resetPasswordForEmail(email, { 
-        redirectTo: 'https://a2z-vercel.inky.app/update-password'
+        redirectTo: 'https://a2z-inky.vercel.app/update-password'
       });
 
       if(error) {
