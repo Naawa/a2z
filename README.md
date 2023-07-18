@@ -1,7 +1,5 @@
-https://a2z-inky.vercel.app
-
 #### Overview
-Inspired by freelancer and taskrabbit.
+Inspired by Freelancer and TaskRabbit, visit https://a2z-inky.vercel.app.
 
 #### **Stack**
 	Svelte Kit (Front End)
