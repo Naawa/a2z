@@ -1,4 +1,5 @@
 import { schema } from "$lib/utils/validationSchema";
+import { AuthApiError } from "@supabase/gotrue-js";
 import { redirect } from "@sveltejs/kit"
 import { message, superValidate } from 'sveltekit-superforms/server';
 
@@ -21,7 +22,7 @@ export const actions = {
           return message(form, "Invalid request.");
       }
        
-      const { data, error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email,
         password,
         options: {  
@@ -30,10 +31,16 @@ export const actions = {
       })
   
       if (error) {
+        if (error instanceof AuthApiError && error.status === 400) {
+          return message(form, "User exists, please login.", 
+            {    
+              status: 400
+            });
+        }
         return message(form, "Error, please try again later.", 
-        {    
-          status: 500
-        });
+          {    
+            status: 500
+          });
       }
       return message(form, "Registered successfully, please check your email.")
     },

@@ -12,7 +12,7 @@
             "topbar topbar topbar"
             "panel main main"
             "logout main main";
-        grid-template-columns: 2fr 4fr;
+        grid-template-columns: 2fr 7fr;
         grid-template-rows: 2fr 6fr 1fr;
         gap: 1em;
         padding: 2em 0;

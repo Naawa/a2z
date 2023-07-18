@@ -47,7 +47,7 @@
             </div>
         {/if}
     </div>
-    <form method="POST" action="/login" use:enhance>
+    <form method="POST" action="/login" use:enhance autocomplete="off">
         <p in:fly={{ y: 50, duration: 300, delay: 550 }} out:fly={{ y: 50, duration: 300, delay: 400 }}>Login</p>
         <input in:fly={{ y: 50, duration: 300, delay: 600 }} out:fly={{ y: 50, duration: 300, delay: 300 }} type="email" name="email" bind:value={$form.email} placeholder="your-email@example.com" {...$constraints.email}>
         <input in:fly={{ y: 50, duration: 300, delay: 650 }} out:fly={{ y: 50, duration: 300, delay: 250 }} type="password" name="password" placeholder="**********" bind:value={$form.password} {...$constraints.password}>
