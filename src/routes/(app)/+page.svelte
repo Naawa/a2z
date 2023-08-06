@@ -2,3 +2,4 @@
     import Landing from "$lib/routes/Landing.svelte"
 </script>
 <Landing></Landing>
+<Landing></Landing>

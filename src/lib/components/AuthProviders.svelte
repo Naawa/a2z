@@ -34,7 +34,7 @@
             font-weight: 700;
             border-radius: 0.75rem;
             border: solid 0.25em var(--accent);
-            background-color: var(--light);
+            background-color: var(--background);
             transition: 0.3s;
             color: var(--accent);
             display: flex;
@@ -43,7 +43,7 @@
             width: clamp(250px, 60dvw, 300px);
             
             &:hover {
-                color: var(--light);
+                color: var(--background);
                 border: solid 0.25em var(--accent);
                 background-color: var(--accent);
             }
